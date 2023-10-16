@@ -1,0 +1,11 @@
+#!/bin/bash
+
+getinput findthebug > student/student_code.sh
+output=$(sh student/student_code.sh)
+
+if [ "$output" = "42" ]; then
+    feedback-result success
+else
+    feedback-result failed
+    feedback-msg -em "Your program displayed : $output"
+fi
