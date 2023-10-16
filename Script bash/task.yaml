@@ -1,0 +1,13 @@
+accessible: false
+author: Romain Carlier
+name: Find the bug
+environment: default
+evaluate: best
+problems:
+  findthebug:
+    language: bash
+    type: code
+    default: ''
+    name: "Find the bug !"
+    header: |-
+            Here is the header
