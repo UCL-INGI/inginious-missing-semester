@@ -7,3 +7,5 @@ admins:
 description: ''
 name: missing-semester
 public: false
+tasks:
+- 'Script bash'
