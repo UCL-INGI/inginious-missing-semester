@@ -5,6 +5,10 @@ environment: default
 evaluate: best
 context: |-
   Vous avez décidé d'écrire un script bash qui vous permet de faire certains calculs à partir d'un seul nombre.
+limits:
+    time: '3'
+    output: '2'
+    memory: '100'
 problems:
   findthebug:
     language: bash

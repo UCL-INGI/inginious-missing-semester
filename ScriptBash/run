@@ -2,13 +2,19 @@
 
 getinput findthebug > student/student_code.sh
 
-if grep -q 'cd|ls|cat' student/student_code.sh; then
+if grep -q -E 'cd|ls|cat' student/student_code.sh; then
     feedback-result failed
     feedback-msg -em "Vous n'avez pas besoin d'utiliser la commande `cd`, `ls` ou `cat`"
 fi
 
 chmod +x buggy.sh
 output=$(sh student/student_code.sh)
+
+if find args_err.txt; then
+    feedback-result failed
+    feedback-msg -em "Attention, le script buggy.sh prend comme argument un nombre entier"
+    exit 0
+fi
 
 if [ "$output" = "42" ]; then
     feedback-result success
