@@ -1,19 +1,23 @@
-accessible: false
 author: Romain Carlier
+contact_url: ''
+context: Vous avez décidé d'écrire un script bash qui vous permet de faire certains
+    calculs à partir d'un seul nombre.
+environment_id: default
+environment_parameters:
+    limits:
+        time: '3'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+file: ''
+input_random: 0
 name: Find the bug
-environment: default
-evaluate: best
-context: |-
-  Vous avez décidé d'écrire un script bash qui vous permet de faire certains calculs à partir d'un seul nombre.
-limits:
-    time: '3'
-    output: '2'
-    memory: '100'
+network_grading: false
 problems:
-  findthebug:
-    language: bash
-    type: code
-    default: ''
-    name: "Find the bug !"
-    header: |-
-            Insérez ici votre script bash
+    findthebug:
+        type: code
+        name: Find the bug !
+        header: Insérez ici votre script bash
+        language: bash
+        default: ''
