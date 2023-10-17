@@ -3,7 +3,7 @@ contact_url: ''
 context: |-
     Nous avons écrit un script bash mais celui-ci contient un bug que nous n'arivons pas à corriger. Pouvez-vous nous aider ?
 
-    Le script bash ``buggy.sh`` prend comme argument un nombre entier entre 0 et 100. Vous pouvez l'exécuter comme ceci dans votre script : 
+    Le script bash ``buggy.sh`` prend comme argument un nombre entier entre 0 et 100. Vous pouvez l'exécuter comme ceci dans votre script :
 
     .. code:: bash
 
@@ -11,11 +11,10 @@ context: |-
         ./buggy.sh 10
 
     Votre objectif est d'écrire un script bash qui va trouver pour quel nombre notre script retourne une erreur. Une fois ce nombre trouvé, vous devez juste l'afficher sur la sortie standard pour réussir cet exercice.
-    
+
     Bonne chance !
 
     Indice : comment vérifiez-vous que le script ``buggy.sh`` n'ait pas retourné un code d'erreur ?
-
 environment_id: default
 environment_parameters:
     limits:
