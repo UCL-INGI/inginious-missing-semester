@@ -3,6 +3,8 @@ author: Romain Carlier
 name: Find the bug
 environment: default
 evaluate: best
+context: |-
+  Vous avez décidé d'écrire un script bash qui vous permet de faire certains calculs à partir d'un seul nombre.
 problems:
   findthebug:
     language: bash
@@ -10,4 +12,4 @@ problems:
     default: ''
     name: "Find the bug !"
     header: |-
-            Here is the header
+            Insérez ici votre script bash

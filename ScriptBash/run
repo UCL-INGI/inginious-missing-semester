@@ -1,11 +1,18 @@
 #!/bin/bash
 
 getinput findthebug > student/student_code.sh
+
+if grep -q 'cd|ls|cat' student/student_code.sh; then
+    feedback-result failed
+    feedback-msg -em "Vous n'avez pas besoin d'utiliser la commande `cd`, `ls` ou `cat`"
+fi
+
+chmod +x buggy.sh
 output=$(sh student/student_code.sh)
 
 if [ "$output" = "42" ]; then
     feedback-result success
 else
     feedback-result failed
-    feedback-msg -em "Your program displayed : $output"
+    feedback-msg -em "Résultat de votre programme : $output"
 fi
