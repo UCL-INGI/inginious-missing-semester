@@ -22,6 +22,7 @@ context: |-
     Votre objectif sera d'extraire certaines informations à l'aide de regex.
 
 environment_id: default
+accessible: true
 environment_parameters:
     limits:
         time: '3'
