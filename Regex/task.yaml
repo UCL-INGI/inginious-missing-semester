@@ -1,0 +1,41 @@
+author: Romain Carlier
+contact_url: ''
+context: |-
+    Regex context
+environment_id: default
+environment_parameters:
+    limits:
+        time: '3'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+file: ''
+input_random: 0
+name: Regex
+network_grading: false
+problems:
+    regex1:
+        type: code
+        name: Exercice 1 - addresses IP
+        header: Insérez ici votre regex pour extraire toutes les addresses IP
+        language: bash
+        default: .*
+    regex2:
+        type: code
+        name: Exercice 2 - timestamps
+        header: Insérez ici votre regex pour extraire tous les timestamps
+        language: bash
+        default: .*
+    regex3:
+        type: code
+        name: Exercice 3 - GET requests
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET
+        language: bash
+        default: .*
+    regex3:
+        type: code
+        name: Exercice 4 - Successful GET requests
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET qui ont un code de retour 200
+        language: bash
+        default: .*
