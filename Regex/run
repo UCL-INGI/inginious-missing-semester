@@ -19,6 +19,39 @@ if [ $output1==$good_output1 ]; then
     feedback-result --id regex1 success
     feedback-msg -em "Bravo"
 else
-    feedback-result failed
+    feedback-result --id regex1 failed
     feedback-msg -em "Résultat de votre programme : $output1"
+fi
+
+output2=$(grep -oP $regex2 apache.log)
+good_output2=$(grep -oP '\[.*?\]' apache.log)
+
+if [ $output2==$good_output2 ]; then
+    feedback-result --id regex2 success
+    feedback-msg -em "Bravo"
+else
+    feedback-result --id regex2 failed
+    feedback-msg -em "Résultat de votre programme : $output2"
+fi
+
+output3=$(grep -oP $regex3 apache.log)
+good_output3=$(grep -oP '"GET\s.*?"' apache.log)
+
+if [ $output3==$good_output3 ]; then
+    feedback-result --id regex3 success
+    feedback-msg -em "Bravo"
+else
+    feedback-result --id regex3 failed
+    feedback-msg -em "Résultat de votre programme : $output3"
+fi
+
+output4=$(grep -oP $regex4 apache.log)
+good_output4=$(grep -oP '^.*200.*$' apache.log)
+
+if [ $output4==$good_output4 ]; then
+    feedback-result --id regex4 success
+    feedback-msg -em "Bravo"
+else
+    feedback-result --id regex4 failed
+    feedback-msg -em "Résultat de votre programme : $output4"
 fi

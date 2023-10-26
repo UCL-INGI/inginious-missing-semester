@@ -1,7 +1,7 @@
 author: Romain Carlier
 contact_url: ''
 context: |-
-    Dans cet exercice, votre objectif sera d'extraire des informations intéressantes d'un fichier de log. C'est pour ce genre de tâche que les expressions régulières (regex) peuvent être utiles.
+    Dans cet exercice, votre objectif sera d'extraire des informations intéressantes d'un fichier de logs. C'est pour ce genre de tâche que les expressions régulières (regex) peuvent être utiles.
     
     Le fichier de log que vous avez à votre disposition est structuré comme suit : 
 
@@ -9,7 +9,7 @@ context: |-
 
         IP -  USER_ID [DATE] "HTTP_METHOD URL HTTP_VERSION" CODE SIZE
 
-    Par exemple, une ligne valide du fichier de log ressemble à celà : 
+    Par exemple, plusieurs lignes valides du fichier de log ressemblent à cela : 
 
     .. code:: 
 
@@ -20,8 +20,6 @@ context: |-
         205.93.245.185 - - [26/Oct/2023:09:51:31 +0000] "PUT /synthesize HTTP/1.1" 200 26245
       
     Votre objectif sera d'extraire certaines informations à l'aide de regex.
-
-
 
 environment_id: default
 environment_parameters:
@@ -46,18 +44,18 @@ problems:
         type: code_single_line
         language: bash
         name: timestamps
-        header: Insérez ici votre regex pour extraire tous les timestamps
+        header: Insérez ici votre regex pour extraire tous les timestamps (avec les [])
         default: .*
     regex3:
         type: code_single_line
         language: bash
         name: GET requests
-        header: Insérez ici votre regex pour extraire toutes les requêtes GET
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET (uniquement ce qu'il y a entre "")
         default: .*
     regex4:
         type: code_single_line
         language: bash
-        name: successful GET requests
-        header: Insérez ici votre regex pour extraire toutes les requêtes GET qui
-            ont un code de retour 200
+        name: successful requests
+        header: Insérez ici votre regex pour extraire toutes les requêtes qui
+            ont un code de retour 200 (lignes complètes)
         default: .*
