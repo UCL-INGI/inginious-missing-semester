@@ -5,15 +5,21 @@ context: |-
     
     Le fichier de log que vous avez à votre disposition est structuré comme suit : 
 
-    .. code:: bash
+    .. code:: 
 
         IP -  USER_ID [DATE] "HTTP_METHOD URL HTTP_VERSION" CODE SIZE
 
     Par exemple, une ligne valide du fichier de log ressemble à celà : 
 
-    .. code:: bash
+    .. code:: 
 
         74.163.115.159 - welch4633 [26/Oct/2023:09:51:31 +0000] "GET /cultivate/visualize HTTP/2.0" 302 24959
+        101.104.102.147 - sanford8877 [26/Oct/2023:09:51:31 +0000] "PUT /24%2f365 HTTP/1.0" 301 13182
+        121.146.236.223 - - [26/Oct/2023:09:51:31 +0000] "PATCH /transform HTTP/1.0" 404 10724
+        74.178.192.149 - - [26/Oct/2023:09:51:31 +0000] "DELETE /systems/models/action-items HTTP/1.0" 204 27141
+        205.93.245.185 - - [26/Oct/2023:09:51:31 +0000] "PUT /synthesize HTTP/1.1" 200 26245
+      
+    Votre objectif sera d'extraire certaines informations à l'aide de regex.
 
 
 
@@ -31,21 +37,23 @@ name: Regex
 network_grading: false
 problems:
     regex1:
-        type: code
+        type: match
         name: addresses IP
         header: Insérez ici votre regex pour extraire toutes les addresses IP
-        language: bash
         default: .*
     regex2:
-        type: code
+        type: match
         name: timestamps
         header: Insérez ici votre regex pour extraire tous les timestamps
-        language: bash
         default: .*
     regex3:
-        type: code
-        name: Exercice 4 - Successful GET requests
+        type: match
+        name: GET requests
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET
+        default: .*
+    regex4:
+        type: match
+        name: successful GET requests
         header: Insérez ici votre regex pour extraire toutes les requêtes GET qui
             ont un code de retour 200
-        language: bash
         default: .*
