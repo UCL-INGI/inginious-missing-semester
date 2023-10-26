@@ -2,29 +2,27 @@ author: Romain Carlier
 contact_url: ''
 context: |-
     Dans cet exercice, votre objectif sera d'extraire des informations intéressantes d'un fichier de logs. C'est pour ce genre de tâche que les expressions régulières (regex) peuvent être utiles.
-    
-    Le fichier de log que vous avez à votre disposition est structuré comme suit : 
 
-    .. code:: 
+    Le fichier de log que vous avez à votre disposition est structuré comme suit :
+
+    .. code::
 
         IP -  USER_ID [DATE] "HTTP_METHOD URL HTTP_VERSION" CODE SIZE
 
-    Par exemple, plusieurs lignes valides du fichier de log ressemblent à cela : 
+    Par exemple, plusieurs lignes valides du fichier de log ressemblent à cela :
 
-    .. code:: 
+    .. code::
 
         74.163.115.159 - welch4633 [26/Oct/2023:09:51:31 +0000] "GET /cultivate/visualize HTTP/2.0" 302 24959
         101.104.102.147 - sanford8877 [26/Oct/2023:09:51:31 +0000] "PUT /24%2f365 HTTP/1.0" 301 13182
         121.146.236.223 - - [26/Oct/2023:09:51:31 +0000] "PATCH /transform HTTP/1.0" 404 10724
         74.178.192.149 - - [26/Oct/2023:09:51:31 +0000] "DELETE /systems/models/action-items HTTP/1.0" 204 27141
         205.93.245.185 - - [26/Oct/2023:09:51:31 +0000] "PUT /synthesize HTTP/1.1" 200 26245
-      
-    Votre objectif sera d'extraire certaines informations à l'aide de regex.
-    
-    Ce site pourrait vous être utile : https://regex101.com/
 
+    Votre objectif sera d'extraire certaines informations à l'aide de regex.
+
+    Ce site pourrait vous être utile : https://regex101.com/
 environment_id: default
-accessible: true
 environment_parameters:
     limits:
         time: '3'
@@ -39,26 +37,24 @@ network_grading: false
 problems:
     regex1:
         type: code_single_line
-        language: bash
         name: addresses IP
         header: Insérez ici votre regex pour extraire toutes les addresses IP
         default: .*
     regex2:
         type: code_single_line
-        language: bash
         name: timestamps
-        header: Insérez ici votre regex pour extraire tous les timestamps (avec les [])
+        header: Insérez ici votre regex pour extraire tous les timestamps (avec les
+            [])
         default: .*
     regex3:
         type: code_single_line
-        language: bash
         name: GET requests
-        header: Insérez ici votre regex pour extraire toutes les requêtes GET (uniquement ce qu'il y a entre "")
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET (uniquement
+            ce qu'il y a entre "")
         default: .*
     regex4:
         type: code_single_line
-        language: bash
         name: successful requests
-        header: Insérez ici votre regex pour extraire toutes les requêtes qui
-            ont un code de retour 200 (lignes complètes)
+        header: Insérez ici votre regex pour extraire toutes les requêtes qui ont
+            un code de retour 200 (lignes complètes)
         default: .*
