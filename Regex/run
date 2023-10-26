@@ -15,11 +15,15 @@ regex4=$(cat student_regex4)
 grep -oP $regex1 apache.log > student_result1
 grep -oP '(\d{1,3}\.){3}\d{1,3}' apache.log > good_result1
 
+global_success=true
+
 if diff student_result1 good_result1; then
     feedback-result --id regex1 success
-    feedback-msg -em "Bravo"
+    feedback-msg -em --id regex1 "Correct"
 else
     feedback-result --id regex1 failed
+    feedback-msg -em --id regex1 "Votre sortie : $(head --lines=10 student_result1)"
+    global_success=false
 fi
 
 grep -oP $regex2 apache.log > student_result2
@@ -27,9 +31,11 @@ grep -oP '\[.*?\]' apache.log > good_result2
 
 if diff student_result2 good_result2; then
     feedback-result --id regex2 success
-    feedback-msg -em "Bravo"
+    feedback-msg -em --id regex2 "Correct"
 else
     feedback-result --id regex2 failed
+    feedback-msg -em --id regex2 "Votre sortie : $(head --lines=10 student_result2)"
+    global_success=false
 fi
 
 grep -oP $regex3 apache.log > student_result3
@@ -37,9 +43,11 @@ grep -oP '"GET\s.*?"' apache.log > good_result3
 
 if diff student_result3 good_result3; then
     feedback-result --id regex3 success
-    feedback-msg -em "Bravo"
+    feedback-msg -em --id regex3 "Correct"
 else
     feedback-result --id regex3 failed
+    feedback-msg -em --id regex3 "Votre sortie : $(head --lines=10 student_result3)"
+    global_success=false
 fi
 
 grep -oP $regex4 apache.log > student_result4
@@ -47,7 +55,17 @@ grep -oP '^.*200.*$' apache.log > good_result4
 
 if diff student_result4 good_result4; then
     feedback-result --id regex4 success
-    feedback-msg -em "Bravo"
+    feedback-msg -em --id regex4 "Correct"
 else
     feedback-result --id regex4 failed
+    feedback-msg -em --id regex4 "Votre sortie : $(head --lines=10 student_result4)"
+    global_success=false
+fi
+
+if [ $global_success ]; then
+    feedback-result success
+    feedback-msg -em "Bravo, vous avez réussi"
+else
+    feedback-result success
+    feedback-msg -em "Vous avez quelques erreurs"
 fi
