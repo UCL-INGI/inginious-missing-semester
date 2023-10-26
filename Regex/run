@@ -64,10 +64,10 @@ fi
 
 echo $global_success
 
-if [ $global_success ]; then
+if [ $global_success = true ]; then
     feedback-result success
-    feedback-msg -em "Bravo, vous avez réussi $global_success"
+    feedback-msg -em "Bravo, vous avez réussi !"
 else
     feedback-result failed
-    feedback-msg -em "Vous avez quelques erreurs $global_success"
+    feedback-msg -em "Vous avez quelques erreurs"
 fi
