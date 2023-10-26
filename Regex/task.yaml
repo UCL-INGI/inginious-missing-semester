@@ -44,13 +44,8 @@ problems:
         default: .*
     regex3:
         type: code
-        name: GET requests
-        header: Insérez ici votre regex pour extraire toutes les requêtes GET
-        language: bash
-        default: .*
-    regex4:
-        type: code
-        name: Successful GET requests
-        header: Insérez ici votre regex pour extraire toutes les requêtes GET qui ont un code de retour 200
+        name: Exercice 4 - Successful GET requests
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET qui
+            ont un code de retour 200
         language: bash
         default: .*
