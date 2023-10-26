@@ -1,31 +1,24 @@
 #!/bin/bash
 
-getinput regex1 > student/student_code.sh
-tr -d '\r' < student/student_code.sh > student/tmp
-mv student/tmp student/student_code.sh
-cp ./buggy.sh ./student/buggy.sh
+getinput regex1 | tr -d '\r' > student/student_regex1
+getinput regex2 | tr -d '\r' > student/student_regex2
+getinput regex3 | tr -d '\r' > student/student_regex3
+getinput regex4 | tr -d '\r' > student/student_regex4
+cp apache.log student/
 
+regex1=$(cat student_regex1)
+regex2=$(cat student_regex2)
+regex3=$(cat student_regex3)
+regex4=$(cat student_regex4)
 
-if grep -q -E "cd|ls|cat" ./student/student_code.sh; then
-    feedback-result failed
-    feedback-msg -em "Vous n'avez pas besoin d'utiliser la commande cd, ls ou cat"
-    exit 0
-fi
-
-chmod +x ./student/buggy.sh
 cd student
-output=$(run_student sh ./student_code.sh)
+output1=$(grep -oP $regex1 apache.log)
+good_output1=$(grep -oP '(\d{1,3}\.){3}\d{1,3}' apache.log)
 
-if [[ -f "./args_err.txt" ]]; then
-    feedback-result failed
-    feedback-msg -em "Attention, le script buggy.sh prend comme argument un nombre entier"
-    exit 0
-fi
-
-if [ "$output" = "42" ]; then
-    feedback-result success
-    feedback-msg -em "Bravo, le nombre qui posait problème était bien 42."
+if [ $output1==$good_output1 ]; then
+    feedback-result --id regex1 success
+    feedback-msg -em "Bravo"
 else
     feedback-result failed
-    feedback-msg -em "Résultat de votre programme : $output"
+    feedback-msg -em "Résultat de votre programme : $output1"
 fi

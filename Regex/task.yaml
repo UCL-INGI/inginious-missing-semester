@@ -17,25 +17,25 @@ network_grading: false
 problems:
     regex1:
         type: code
-        name: Exercice 1 - addresses IP
+        name: addresses IP
         header: Insérez ici votre regex pour extraire toutes les addresses IP
         language: bash
         default: .*
     regex2:
         type: code
-        name: Exercice 2 - timestamps
+        name: timestamps
         header: Insérez ici votre regex pour extraire tous les timestamps
         language: bash
         default: .*
     regex3:
         type: code
-        name: Exercice 3 - GET requests
+        name: GET requests
         header: Insérez ici votre regex pour extraire toutes les requêtes GET
         language: bash
         default: .*
-    regex3:
+    regex4:
         type: code
-        name: Exercice 4 - Successful GET requests
+        name: Successful GET requests
         header: Insérez ici votre regex pour extraire toutes les requêtes GET qui ont un code de retour 200
         language: bash
         default: .*
