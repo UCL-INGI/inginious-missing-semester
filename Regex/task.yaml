@@ -1,7 +1,22 @@
 author: Romain Carlier
 contact_url: ''
 context: |-
-    Regex context
+    Dans cet exercice, votre objectif sera d'extraire des informations intéressantes d'un fichier de log. C'est pour ce genre de tâche que les expressions régulières (regex) peuvent être utiles.
+    
+    Le fichier de log que vous avez à votre disposition est structuré comme suit : 
+
+    .. code:: bash
+
+        IP -  USER_ID [DATE] "HTTP_METHOD URL HTTP_VERSION" CODE SIZE
+
+    Par exemple, une ligne valide du fichier de log ressemble à celà : 
+
+    .. code:: bash
+
+        74.163.115.159 - welch4633 [26/Oct/2023:09:51:31 +0000] "GET /cultivate/visualize HTTP/2.0" 302 24959
+
+
+
 environment_id: default
 environment_parameters:
     limits:
