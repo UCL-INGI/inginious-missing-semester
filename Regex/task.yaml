@@ -20,6 +20,8 @@ context: |-
         205.93.245.185 - - [26/Oct/2023:09:51:31 +0000] "PUT /synthesize HTTP/1.1" 200 26245
       
     Votre objectif sera d'extraire certaines informations à l'aide de regex.
+    
+    Ce site pourrait vous être utile : https://regex101.com/
 
 environment_id: default
 accessible: true

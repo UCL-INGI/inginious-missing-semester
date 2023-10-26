@@ -66,8 +66,8 @@ echo $global_success
 
 if [ $global_success ]; then
     feedback-result success
-    feedback-msg -em "Bravo, vous avez réussi"
+    feedback-msg -em "Bravo, vous avez réussi $global_success"
 else
     feedback-result failed
-    feedback-msg -em "Vous avez quelques erreurs"
+    feedback-msg -em "Vous avez quelques erreurs $global_success"
 fi
