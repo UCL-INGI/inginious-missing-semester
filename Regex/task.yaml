@@ -37,22 +37,26 @@ name: Regex
 network_grading: false
 problems:
     regex1:
-        type: match
+        type: code_single_line
+        language: bash
         name: addresses IP
         header: Insérez ici votre regex pour extraire toutes les addresses IP
         default: .*
     regex2:
-        type: match
+        type: code_single_line
+        language: bash
         name: timestamps
         header: Insérez ici votre regex pour extraire tous les timestamps
         default: .*
     regex3:
-        type: match
+        type: code_single_line
+        language: bash
         name: GET requests
         header: Insérez ici votre regex pour extraire toutes les requêtes GET
         default: .*
     regex4:
-        type: match
+        type: code_single_line
+        language: bash
         name: successful GET requests
         header: Insérez ici votre regex pour extraire toutes les requêtes GET qui
             ont un code de retour 200
