@@ -7,3 +7,28 @@ admins:
 description: ''
 name: missing-semester
 public: false
+task_dispenser: toc
+dispenser_data:
+    config:
+        Regex:
+            accessibility: false
+            categories: []
+            evaluation_mode: best
+            group_submission: false
+            no_stored_submissions: 0
+            submission_limit:
+                amount: -1
+                period: -1
+            weight: 1
+        ScriptBash:
+            accessibility: false
+            categories: []
+            evaluation_mode: best
+            group_submission: false
+            no_stored_submissions: 0
+            submission_limit:
+                amount: -1
+                period: -1
+            weight: 1
+    imported: false
+    toc: []
