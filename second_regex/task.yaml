@@ -1,0 +1,63 @@
+author: Romain Carlier
+contact_url: ''
+context: |-
+    Dans cet exercice, votre objectif sera d'extraire des informations intéressantes d'un fichier de logs. C'est pour ce genre de tâche que les expressions régulières (regex) peuvent être utiles.
+
+    Le fichier de log que vous avez à votre disposition est structuré comme suit :
+
+    .. code::
+
+        IP -  USER_ID [DATE] "HTTP_METHOD URL HTTP_VERSION" CODE SIZE
+
+    Par exemple, plusieurs lignes valides du fichier de log ressemblent à cela :
+
+    .. code::
+
+        74.163.115.159 - welch4633 [26/Oct/2023:09:51:31 +0000] "GET /cultivate/visualize HTTP/2.0" 302 24959
+        101.104.102.147 - sanford8877 [26/Oct/2023:09:51:31 +0000] "PUT /24%2f365 HTTP/1.0" 301 13182
+        121.146.236.223 - - [26/Oct/2023:09:51:31 +0000] "PATCH /transform HTTP/1.0" 404 10724
+        74.178.192.149 - - [26/Oct/2023:09:51:31 +0000] "DELETE /systems/models/action-items HTTP/1.0" 204 27141
+        205.93.245.185 - - [26/Oct/2023:09:51:31 +0000] "PUT /synthesize HTTP/1.1" 200 26245
+
+    Votre objectif sera d'extraire certaines informations à l'aide de regex.
+
+    Ce site pourrait vous être utile : https://regex101.com/
+environment_id: default
+environment_parameters:
+    limits:
+        time: '3'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+file: ''
+input_random: 0
+name: Apache log file - avancé
+network_grading: false
+problems:
+    regex1:
+        type: code_single_line
+        name: timestamps 2
+        header: Insérez ici votre regex pour extraire toutes les requêtes faites strictement avant 10:00 (lignes complètes)
+        default: .*
+    regex2:
+        type: code_single_line
+        name: user IDs
+        header: Insérez ici votre regex pour extraire toutes les requêtes où un userID est précisé (sinon la requête contient un '-' à l'endroit de l'user ID) (lignes complètes)
+        default: .*
+    regex3:
+        type: code_single_line
+        name: GET requests 2
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET réussies (200 <= code d'erreur < 300) (lignes complètes)
+        default: .*
+    regex4:
+        type: code_single_line
+        name: PUT HTTP 2.0
+        header: Insérez ici votre regex pour extraire toutes les requêtes PUT faites via HTTP 2.0 (lignes complètes)
+        default: .*
+    regex5:
+        type: code_single_line
+        language: bash
+        name: all in one
+        header: Insérez ici votre regex pour extraire toutes les requêtes GET faites strictement avant 12:00 où il y a un nom d'utilisateur et dont la taille est strictement plus grande que 1500 (lignes complètes)
+        default: .*
