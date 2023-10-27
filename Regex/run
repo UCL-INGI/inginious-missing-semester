@@ -4,6 +4,7 @@ getinput regex1 | tr -d '\r' > student/student_regex1
 getinput regex2 | tr -d '\r' > student/student_regex2
 getinput regex3 | tr -d '\r' > student/student_regex3
 getinput regex4 | tr -d '\r' > student/student_regex4
+getinput regex5 | tr -d '\r' > student/student_regex5
 cp apache.log student/
 cd student
 
@@ -11,6 +12,7 @@ regex1=$(cat student_regex1)
 regex2=$(cat student_regex2)
 regex3=$(cat student_regex3)
 regex4=$(cat student_regex4)
+regex5=$(cat student_regex5)
 
 global_success=true
 
@@ -22,7 +24,7 @@ if diff student_result1 good_result1; then
     feedback-msg -e -m "Correct" --id regex1
 else
     feedback-result --id regex1 failed
-    feedback-msg -e -m "Votre sortie : $(head --lines=10 student_result1)" --id regex1 
+    feedback-msg -e -m "Vous n'avez pas récupéré toutes les addresses IP" --id regex1 
     global_success=false
 fi
 
@@ -34,7 +36,7 @@ if diff student_result2 good_result2; then
     feedback-msg -e -m "Correct" --id regex2
 else
     feedback-result --id regex2 failed
-    feedback-msg -e -m "Votre sortie : $(head --lines=10 student_result2)" --id regex2
+    feedback-msg -e -m "Vous n'avez pas récupéré tous les timestamps" --id regex2
     global_success=false
 fi
 
@@ -46,7 +48,7 @@ if diff student_result3 good_result3; then
     feedback-msg -e -m "Correct" --id regex3 
 else
     feedback-result --id regex3 failed
-    feedback-msg -e -m "Votre sortie : $(head --lines=10 student_result3)" --id regex13
+    feedback-msg -e -m "Vous n'avez pas récupéré toutes les requêtes GET" --id regex13
     global_success=false
 fi
 
@@ -58,11 +60,21 @@ if diff student_result4 good_result4; then
     feedback-msg -e -m "Correct" --id regex4 
 else
     feedback-result --id regex4 failed
-    feedback-msg -e -m "Votre sortie : $(head --lines=10 student_result4)" --id regex4 
+    feedback-msg -e -m "Vous n'avez pas récupéré toutes les requêtes avec un statut 200" --id regex4 
     global_success=false
 fi
 
-echo $global_success
+grep -oP "$regex5" apache.log > student_result5
+grep -oP '^.*\s\d{1,3}$' apache.log > good_result5
+
+if diff student_result5 good_result5; then
+    feedback-result --id regex5 success
+    feedback-msg -e -m "Correct" --id regex5
+else
+    feedback-result --id regex5 failed
+    feedback-msg -e -m "Vous n'avez pas récupéré toutes les requêtes strictement plus petites que 1000" --id regex5
+    global_success=false
+fi
 
 if [ $global_success = true ]; then
     feedback-result success

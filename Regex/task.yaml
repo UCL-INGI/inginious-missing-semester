@@ -34,7 +34,7 @@ environment_parameters:
 environment_type: docker
 file: ''
 input_random: 0
-name: Regex
+name: Apache log file
 network_grading: false
 problems:
     regex1:
@@ -61,4 +61,10 @@ problems:
         name: successful requests
         header: Insérez ici votre regex pour extraire toutes les requêtes qui
             ont un code de retour 200 (lignes complètes)
+        default: .*
+    regex4:
+        type: code_single_line
+        language: bash
+        name: small requests
+        header: Insérez ici votre regex pour extraire toutes les requêtes dont la taille est strictement plus petite que 1000 (lignes complètes)
         default: .*
